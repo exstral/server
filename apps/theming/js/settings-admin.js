@@ -151,6 +151,9 @@ window.addEventListener('DOMContentLoaded', function () {
 	$('#theming-preview').on('click', function() {
 		$('#upload-login-background').click();
 	});
+	$('#theming-preview-dashboard').on('click', function() {
+		$('#upload-dashboard-background').click();
+	});
 
 	function checkName () {
 		var length = $('#theming-name').val().length;
@@ -241,6 +244,18 @@ window.addEventListener('DOMContentLoaded', function () {
 			OC.generateUrl('/apps/theming/ajax/updateStylesheet'), {'setting' : 'backgroundMime', 'value' : 'backgroundColor'}
 		).done(function(response) {
 			preview('backgroundMime', 'backgroundColor', response.data.serverCssUrl);
+		}).fail(function(response) {
+			OC.msg.finishedSaving('#theming_settings_msg', response);
+			$('#theming_settings_loading').hide();
+		});
+	});
+
+	$('.theme-remove-dashboard-bg').click(function() {
+		startLoading();
+		$.post(
+			OC.generateUrl('/apps/theming/ajax/updateStylesheet'), {'setting' : 'dashboardBackgroundMime', 'value' : 'backgroundColor'}
+		).done(function(response) {
+			preview('dashboardBackgroundMime', 'backgroundColor', response.data.serverCssUrl);
 		}).fail(function(response) {
 			OC.msg.finishedSaving('#theming_settings_msg', response);
 			$('#theming_settings_loading').hide();

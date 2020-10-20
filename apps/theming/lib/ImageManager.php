@@ -86,6 +86,8 @@ class ImageManager {
 				return $this->urlGenerator->imagePath('core', 'logo/logo.png') . '?v=' . $cacheBusterCounter;
 			case 'background':
 				return $this->urlGenerator->imagePath('core', 'background.png') . '?v=' . $cacheBusterCounter;
+			case 'dashboardBackground':
+				return $this->urlGenerator->imagePath('dashboard', 'eduardo-neves-pedra-azul.jpg') . '?v=' . $cacheBusterCounter;
 		}
 	}
 

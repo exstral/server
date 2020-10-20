@@ -33,6 +33,7 @@
         width: 411px;
     }
     form .theme-undo,
+    .theme-remove-dashboard-bg,
     .theme-remove-bg {
         cursor: pointer;
         opacity: .3;
@@ -90,7 +91,8 @@
         border-radius: 3px;
     }
 
-    #theming-preview {
+    #theming-preview,
+    #theming-preview-dashboard {
         width: 230px;
         height: 140px;
         background-size: cover;
