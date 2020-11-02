@@ -194,16 +194,13 @@ class RouteParser {
 				if (!$collectionAction) {
 					$url .= '/{id}';
 				}
-				if (isset($action['url-postfix'])) {
-					$url .= '/' . $action['url-postfix'];
-				}
 
 				$controller = $resource;
 
 				$controllerName = $this->buildControllerName($controller);
 				$actionName = $this->buildActionName($method);
 
-				$routeName = $routeNamePrefix . $appName . '.' . strtolower($resource) . '.' . strtolower($method);
+				$routeName = $routeNamePrefix . $appName . '.' . strtolower($resource) . '.' . $method;
 
 				$route = new Route($url);
 				$route->method($verb);
